@@ -1,5 +1,8 @@
 package com.loloconsult.storebay.service;
 
+import com.loloconsult.storebay.dao.ArticleDao;
+
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 /**
@@ -11,7 +14,19 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class ServiceImpl implements Service {
+
+    @EJB
+    ArticleDao articleDao;
+
+    @Override
     public String saluer() {
         return "Bonjour, comment ça va ???";
     }
+
+    @Override
+    public double trouverPrixArticle(String nomArticle) {
+        return articleDao.rechercherParNom(nomArticle).getPrix();
+    }
+
+
 }

@@ -8,5 +8,8 @@ package com.loloconsult.storebay.service;
  * To change this template use File | Settings | File Templates.
  */
 public interface Service {
+
     String saluer();
+
+    double trouverPrixArticle(String nomArticle);
 }
