@@ -1,0 +1,15 @@
+<assembly>
+    <id>sans-persistence</id>
+    <formats>
+        <format>dir</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>target/classes</directory>
+            <outputDirectory></outputDirectory>
+            <excludes>
+                <exclude>**/*.xml</exclude>
+            </excludes>
+        </fileSet>
+    </fileSets>
+</assembly>

@@ -34,7 +34,7 @@ public class ServiceServlet extends HttpServlet {
             out.println("<title>Servlet ServiceServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>" + service.trouverPrixArticle("TALON AIGUILLE") + "</h1>");
+            out.println("<h1>" + service.trouverPrixArticle("PARFUM COCO CHANEL") + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {

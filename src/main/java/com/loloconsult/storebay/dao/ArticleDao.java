@@ -3,6 +3,7 @@ package com.loloconsult.storebay.dao;
 import com.loloconsult.storebay.entity.Article;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.*;
 
 /**
@@ -16,17 +17,17 @@ import javax.persistence.*;
 public class ArticleDao {
 
     // Injection du manager, qui s'occupe de la connexion avec la BDD
-    @PersistenceUnit(unitName="datasource")
-    private EntityManagerFactory factory;
+    @PersistenceContext(name = "datasource")
+    private EntityManager em;
 
     // Enregistrement d'un nouvel utilisateur
     public void creer(Article article){
-        factory.createEntityManager().persist(article);
+        em.persist(article);
     }
 
     // Recherche d'un article à partir de son nom
     public Article rechercherParNom(String nom) throws NoResultException {
-        Article article = (Article) factory.createEntityManager().createQuery("SELECT a FROM Article a WHERE a.nom=:nom")
+        Article article = (Article) em.createQuery("SELECT a FROM Article a WHERE a.nom=:nom")
                 .setParameter("nom", nom)
                 .getSingleResult();
         return article;
